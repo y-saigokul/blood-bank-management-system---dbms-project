@@ -1,0 +1,155 @@
+{% load static %}
+
+{% block body %}
+
+<html>
+<head>
+<title>Blood Bank Management System || Search Donor</title>
+<link rel="stylesheet" id="css-main" href="{% static 'adminassets/css/codebase.min.css' %}">
+<link href="{% static 'css/bootstrap.css' %}" rel='stylesheet' type='text/css' />
+	<script src="{% static 'js/jquery.min.js' %}"></script>
+
+<link rel="stylesheet" href="{% static 'css/style.css' %}"  type="text/css" media="all">
+<!-- Custom Theme files -->
+
+<link rel="stylesheet" href="{% static 'css/touchTouch.css' %}" type="text/css" media="all" />
+<!-- Custom Theme files -->
+
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!--webfont-->
+<link href='http://fonts.googleapis.com/css?family=Monoton' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+<!---//End-css-style-switecher----->
+<script type="text/javascript" src="{% static 'js/jquery.fancybox.js' %}"></script>
+		<link rel="stylesheet" type="text/css" href="{% static 'css/jquery.fancybox.css' %}" media="screen" />
+	   <script type="text/javascript">
+			$(document).ready(function() {
+				/*
+				 *  Simple image gallery. Uses default settings
+				 */
+
+				$('.fancybox').fancybox();
+
+			});
+		</script>
+
+</head>
+<body>
+<!---->
+{% include 'navigationbar.html' %}
+<div class="about content">
+	 <div class="container">
+		 <ol class="breadcrumb">
+		  <li><a href="{% url 'home' %}">Home</a></li>
+		  <li class="active">Search Donor</li>
+		 </ol>
+
+         <!-- Main Container -->
+            <main id="main-container">
+                <!-- Page Content -->
+                <div class="content">
+
+
+
+                    <!-- Dynamic Table Full Pagination -->
+                    <div class="block">
+                        <div class="block-header block-header-default">
+                            <h3 class="block-title">Search Donor</h3>
+                        </div>
+                        <div class="block-content block-content-full">
+                            <!-- DataTables init on table by adding .js-dataTable-full-pagination class, functionality initialized in js/pages/be_tables_datatables.js -->
+                            <form id="basic-form" method="post">
+                                   {% csrf_token %}
+                                <div class="form-group">
+                                    <label>Search by Blood Group/Location</label>
+                                    <input id="searchdata" type="text" name="searchblood" required="true" class="form-control" placeholder="Blood Group/Location"></div>
+
+                                <br>
+                                <button type="submit" class="btn btn-primary" name="search" id="submit">Search</button>
+                            </form>
+                            {% ifequal terror "found" %}
+  <h4 align="center">Result against "{{ sd }}" keyword </h4>
+                            <table class="table table-bordered table-striped table-vcenter js-dataTable-full-pagination">
+                                <thead>
+                                     <tr>
+                                        <th class="text-center"></th>
+                                        <th>Donor ID</th>
+                                        <th class="d-none d-sm-table-cell">Full Name</th>
+                                        <th class="d-none d-sm-table-cell">Mobile Number</th>
+                                        <th class="d-none d-sm-table-cell">Email</th>
+                                        <th class="d-none d-sm-table-cell">Blood Group</th>
+                                         <th class="d-none d-sm-table-cell">Location</th>
+                                        <th class="d-none d-sm-table-cell">Posting Date</th>
+
+                                       </tr>
+                                </thead>
+                                <tbody>
+                                   {% for i in donor %}
+                                    <tr>
+                                        <td class="text-center">{{forloop.counter}}</td>
+                                        <td class="font-w600">{{i.id}}</td>
+                                        <td class="font-w600">{{i.fullname}}</td>
+                                        <td class="font-w600">{{i.mobileno}}</td>
+                                        <td class="font-w600">{{i.emailid}}</td>
+                                        <td class="font-w600">{{i.group.bloodgroup}}</td>
+                                         <td class="font-w600">{{i.address}}</td>
+                                        <td class="font-w600">
+                                            <span class="badge badge-primary">{{i.postingdate}}</span>
+                                        </td>
+
+
+
+
+
+
+                                    </tr>
+{% endfor %}
+
+
+
+                                </tbody>
+{% else %}
+  <tr>
+    <td colspan="8"> No record found against this search</td>
+
+  </tr>
+  {% endifequal %}
+                            </table>
+                        </div>
+                    </div>
+                    <!-- END Dynamic Table Full Pagination -->
+
+                    <!-- END Dynamic Table Simple -->
+                </div>
+                <!-- END Page Content -->
+            </main>
+            <!-- END Main Container -->
+
+
+
+
+
+		{% include 'footer.html' %}
+	 </div>
+</div>
+<!---->
+
+<!---->
+</body>
+</html>
+{%  ifequal error "no" %}
+<script>
+    alert('Record Saved Successfully');
+</script>
+{%  endifequal %}
+
+{%  ifequal error "yes" %}
+<script>
+    alert('Something went wrong , Try Again');
+</script>
+{%  endifequal %}
+
+
+
+
+{% endblock %}

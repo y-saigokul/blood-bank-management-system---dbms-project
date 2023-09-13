@@ -1,0 +1,182 @@
+{% load static %}
+
+{% block body %}
+
+<html>
+<head>
+<title>Blood Bank Management System || About Us</title>
+<link rel="stylesheet" id="css-main" href="{% static 'adminassets/css/codebase.min.css' %}">
+<link href="{% static 'css/bootstrap.css' %}" rel='stylesheet' type='text/css' />
+	<script src="{% static 'js/jquery.min.js' %}"></script>
+
+<link rel="stylesheet" href="{% static 'css/style.css' %}"  type="text/css" media="all">
+<!-- Custom Theme files -->
+
+<link rel="stylesheet" href="{% static 'css/touchTouch.css' %}" type="text/css" media="all" />
+<!-- Custom Theme files -->
+
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!--webfont-->
+<link href='http://fonts.googleapis.com/css?family=Monoton' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+<!---//End-css-style-switecher----->
+<script type="text/javascript" src="{% static 'js/jquery.fancybox.js' %}"></script>
+		<link rel="stylesheet" type="text/css" href="{% static 'css/jquery.fancybox.css' %}" media="screen" />
+	   <script type="text/javascript">
+			$(document).ready(function() {
+				/*
+				 *  Simple image gallery. Uses default settings
+				 */
+
+				$('.fancybox').fancybox();
+
+			});
+		</script>
+
+</head>
+<body>
+<!---->
+{% include 'navigationbar.html' %}
+<div class="about content">
+	 <div class="container">
+		 <ol class="breadcrumb">
+		  <li><a href="{% url 'home' %}">Home</a></li>
+		  <li class="active">Become Donor</li>
+		 </ol>
+
+         <!-- Main Container -->
+            <main id="main-container">
+                <!-- Page Content -->
+                <div class="content">
+
+                    <!-- Register Forms -->
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!-- Bootstrap Register -->
+                            <div class="block block-themed">
+                                <div class="block-header bg-gd-emerald">
+                                    <h3 class="block-title">Become Donor</h3>
+                                    <div class="block-options">
+                                        <button type="button" class="btn-block-option" data-toggle="block-option" data-action="state_toggle" data-action-mode="demo">
+                                            <i class="si si-refresh"></i>
+                                        </button>
+                                        <button type="button" class="btn-block-option" data-toggle="block-option" data-action="content_toggle"></button>
+                                    </div>
+                                </div>
+                                <div class="block-content">
+
+                                    <form method="post">
+                                    {% csrf_token %}
+                                        <div class="form-group row">
+                                            <label class="col-12" >Full Name:</label>
+                                            <div class="col-12">
+                                                 <input type="text" class="form-control" name="fullname" value="" required='true'>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-12" >Contact:</label>
+                                            <div class="col-12">
+                                                 <input type="text" class="form-control" name="contact" value="" required='true'>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-12" >Email ID:</label>
+                                            <div class="col-12">
+                                                 <input type="email" class="form-control" name="emailid" value="" required='true'>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-12" >Age:</label>
+                                            <div class="col-12">
+                                                 <input type="number" class="form-control" name="age" value="" required='true'>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-12" >Gender:</label>
+                                            <div class="col-12">
+                                                 <input type="radio" name="gender" value="male"> Male
+                                                 <input type="radio" name="gender" value="male"> Female
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group row">
+                                            <label class="col-12" >Blood Group:</label>
+                                            <div class="col-12">
+                                                <select type="text" class="form-control" name="bloodgroup" required="true" >
+							 	<option value="">--Choose Blood Group--</option>
+							 	{% for i in group %}
+                <option value="{{i.bloodgroup}}">{{i.bloodgroup}}</option>
+                                {% endfor %}
+							 </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-12" >Address:</label>
+                                            <div class="col-12">
+                                                 <textarea class="form-control" name="address" required='true'></textarea>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-12" >Message:</label>
+                                            <div class="col-12">
+                                                 <textarea class="form-control" name="message" required='true'></textarea>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group row">
+                                            <div class="col-12">
+                                                <button type="submit" class="btn btn-alt-success" name="submit">
+                                                    <i class="fa fa-plus mr-5"></i> Add
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                </div>
+                            </div>
+                            <!-- END Bootstrap Register -->
+                        </div>
+
+                       </div>
+                </div>
+                <!-- END Page Content -->
+            </main>
+            <!-- END Main Container -->
+
+
+
+
+
+		{% include 'footer.html' %}
+	 </div>
+</div>
+<!---->
+
+<!---->
+</body>
+</html>
+{%  ifequal error "no" %}
+<script>
+    alert('Record Saved Successfully');
+</script>
+{%  endifequal %}
+
+{%  ifequal error "yes" %}
+<script>
+    alert('Something went wrong , Try Again');
+</script>
+{%  endifequal %}
+
+
+
+
+{% endblock %}

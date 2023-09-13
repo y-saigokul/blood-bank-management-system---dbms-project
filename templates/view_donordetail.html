@@ -1,0 +1,126 @@
+{% load static %}
+{% block body %}
+ <html lang="en" class="no-focus"> <!--<![endif]-->
+    <head>
+ <title>Blood Bank Management System - Donor Detail</title>
+
+<link rel="stylesheet" href="{% static 'adminassets/js/plugins/datatables/dataTables.bootstrap4.min.css' %}">
+
+        <link rel="stylesheet"  href="{% static 'adminassets/css/codebase.min.css' %}">
+</head>
+    <body>
+        <div id="page-container" class="sidebar-o sidebar-inverse side-scroll page-header-fixed main-content-narrow">
+
+
+
+ {% include 'sidebar.html' %}
+            {% include 'admin_nav.html' %}
+
+            <!-- Main Container -->
+            <main id="main-container">
+                <!-- Page Content -->
+                <div class="content">
+
+                    <!-- Register Forms -->
+                    <h2 class="content-heading">View Donor Detail</h2>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!-- Bootstrap Register -->
+                            <div class="block block-themed">
+                                <div class="block-header bg-gd-emerald">
+                                    <h3 class="block-title">View Donor Detail</h3>
+                                    <div class="block-options">
+                                        <button type="button" class="btn-block-option" data-toggle="block-option" data-action="state_toggle" data-action-mode="demo">
+                                            <i class="si si-refresh"></i>
+                                        </button>
+                                        <button type="button" class="btn-block-option" data-toggle="block-option" data-action="content_toggle"></button>
+                                    </div>
+                                </div>
+                                <div class="block-content">
+
+                                    {% for i in donor %}
+                            <table border="1" class="table table-bordered table-striped table-vcenter js-dataTable-full-pagination">
+                                            <tr>
+    <th>Donor Number</th>
+    <td>{{i.id}}</td>
+    <th>Donor Name</th>
+    <td>{{i.fullname}}</td>
+  </tr>
+
+
+  <tr>
+    <th>Mobile Number</th>
+    <td>{{i.mobileno}}</td>
+   <th>Email</th>
+    <td>{{i.emailid}}</td>
+  </tr>
+  <tr>
+
+    <th>Gender</th>
+    <td>{{i.gender}}</td>
+    <th>Age</th>
+    <td>{{i.age}}</td>
+  </tr>
+   <tr>
+
+    <th>Blood Group</th>
+    <td>{{i.group}}</td>
+    <th>Address</th>
+    <td>{{i.address}}</td>
+  </tr>
+  <tr>
+
+    <th>Message</th>
+    <td>{{i.message}}</td>
+    <th>Posting Date</th>
+    <td>{{i.postingdate}}</td>
+  </tr>
+
+
+
+
+
+
+
+
+</table>
+
+ {% endfor %}
+
+</div>
+
+
+
+
+
+
+                                </div>
+                            </div>
+                            <!-- END Bootstrap Register -->
+
+
+
+            </main>
+            <!-- END Main Container -->
+
+         {% include 'adminfooter.html' %}
+        </div>
+        <!-- END Page Container -->
+
+        <!-- Codebase Core JS -->
+         <script src="{% static 'adminassets/js/core/jquery.min.js' %}"></script>
+        <script src="{% static 'adminassets/js/core/popper.min.js' %}"></script>
+        <script src="{% static 'adminassets/js/core/bootstrap.min.js' %}"></script>
+        <script src="{% static 'adminassets/js/core/jquery.slimscroll.min.js' %}"></script>
+        <script src="{% static 'adminassets/js/core/jquery.scrollLock.min.js' %}"></script>
+        <script src="{% static 'adminassets/js/core/jquery.appear.min.js' %}"></script>
+        <script src="{% static 'adminassets/js/core/jquery.countTo.min.js' %}"></script>
+        <script src="{% static 'adminassets/js/core/js.cookie.min.js' %}"></script>
+        <script src="{% static 'adminassets/js/codebase.js' %}"></script>
+    </body>
+</html>
+
+
+
+
+{% endblock %}

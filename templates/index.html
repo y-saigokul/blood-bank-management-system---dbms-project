@@ -1,0 +1,114 @@
+
+ {% load static %}
+
+{% block body %}
+<html>
+<head>
+<title>Blood Bank And Donor Management ||Home Page</title>
+
+
+<script src="{% static 'js/responsiveslides.min.js' %}"></script>
+<link href="{% static 'css/bootstrap.css' %}" rel='stylesheet' type='text/css' />
+	<script src="{% static 'js/jquery.min.js' %}"></script>
+<!-- jQuery (Bootstrap's JavaScript plugins) -->
+
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Custom Theme files -->
+<link rel="stylesheet" href="{% static 'css/style.css' %}"  type="text/css" media="all">
+
+<link href='http://fonts.googleapis.com/css?family=Monoton' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+
+
+
+</head>
+<body>
+<!---->
+{% include 'navigationbar.html' %}
+<!---->
+<script src="{% static 'js/responsiveslides.min.js' %}"></script>
+  <script>
+    // You can also use "$(window).load(function() {"
+    $(function () {
+      $("#slider").responsiveSlides({
+      	auto: true,
+        manualControls: '#slider3-pager',
+      });
+    });
+  </script>
+<div class="content">
+	 <div class="container">
+		  <div class="slider">
+			<!-- Slideshow 3 -->
+			<ul class="rslides" id="slider">
+			  <li><img src="{% static 'images/7.jpg' %}" alt="">
+				<div class="caption">
+					<h1>"Bring a life back to power. Make blood donation your responsibility"</h1>
+
+				</div>
+			  </li>
+			  <li><img src="{% static 'images/2.jpg' %}" alt="">
+				<div class="caption">
+					<h1>"Anybody can give blood"</h1>
+
+				</div>
+			  </li>
+			  <li><img src="{% static 'images/10.jpg' %}" alt="">
+				<div class="caption">
+					<h1>"Donate your blood for a reason, let the reason to be life"</h1>
+
+				</div>
+			  </li>
+			  <li><img src="{% static 'images/5.jpg' %}" alt="">
+				<div class="caption">
+					<h1>"Starve a vampire, donate blood"</h1>
+
+				</div>
+			  </li>
+			  <li><img src="{% static 'images/8.jpg' %}" alt="">
+				<div class="caption">
+					<h1>"Don't let mosquitoes get your blood first"</h1>
+
+				</div>
+			  </li>
+			  <li><img src="{% static 'images/1.jpg' %}" alt="">
+				<div class="caption">
+					<h1>"I have nothing to offer but blood, toil, tears and sweat."</h1>
+
+				</div>
+			  </li>
+			  <li><img src="{% static 'images/13.jpg' %}" alt="">
+				<div class="caption">
+					<h1>"Never feel yourself weak, you have the ability to save a life. Just donate blood."</h1>
+
+				</div>
+			  </li>
+			  <li><img src="{% static 'images/3.jpg' %}" alt="">
+				<div class="caption">
+					<h1>"You are Rock Star in someone’s life, donate blood."</h1>
+
+				</div>
+			  </li>
+			</ul>
+			<!-- Slideshow 3 Pager --></br></br>
+			<ul id="slider3-pager">
+			  <li><a href="#"><img src="{% static 'images/77.jpg' %}" alt=""></a></li>
+			  <li><a href="#"><img src="{% static 'images/22.jpg' %}" alt=""></a></li>
+			  <li><a href="#"><img src="{% static 'images/1010.jpg' %}" alt=""></a></li>
+			   <li><a href="#"><img src="{% static 'images/55.jpg' %}" alt=""></a></li>
+			  <li><a href="#"><img src="{% static 'images/88.jpg' %}" alt=""></a></li>
+			  <li><a href="#"><img src="{% static 'images/11.jpg' %}" alt=""></a></li>
+			  <li><a href="#"><img src="{% static 'images/1313.jpg' %}" alt=""></a></li>
+			  <li><a href="#"><img src="{% static 'images/33.jpg' %}" alt=""></a></li>
+			</ul>
+				<div class="clearfix"></div>
+		  </div>
+	 </div>
+	{% include 'footer.html' %}
+</div>
+<!---->
+
+<!---->
+</body>
+</html>
+{% endblock %}

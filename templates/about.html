@@ -1,0 +1,107 @@
+{% load static %}
+
+{% block body %}
+
+<html>
+<head>
+<title>Blood Bank Management System || About Us</title>
+
+<link href="{% static 'css/bootstrap.css' %}" rel='stylesheet' type='text/css' />
+	<script src="{% static 'js/jquery.min.js' %}"></script>
+
+<link rel="stylesheet" href="{% static 'css/style.css' %}"  type="text/css" media="all">
+<!-- Custom Theme files -->
+
+<link rel="stylesheet" href="{% static 'css/touchTouch.css' %}" type="text/css" media="all" />
+<!-- Custom Theme files -->
+
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!--webfont-->
+<link href='http://fonts.googleapis.com/css?family=Monoton' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+<!---//End-css-style-switecher----->
+<script type="text/javascript" src="{% static 'js/jquery.fancybox.js' %}"></script>
+		<link rel="stylesheet" type="text/css" href="{% static 'css/jquery.fancybox.css' %}" media="screen" />
+	   <script type="text/javascript">
+			$(document).ready(function() {
+				/*
+				 *  Simple image gallery. Uses default settings
+				 */
+
+				$('.fancybox').fancybox();
+
+			});
+		</script>
+
+</head>
+<body>
+<!---->
+{% include 'navigationbar.html' %}
+<div class="about content">
+	 <div class="container">
+		 <ol class="breadcrumb">
+		  <li><a href="{% url 'home' %}">Home</a></li>
+		  <li class="active">About</li>
+		 </ol>
+
+		 <h2>About Us</h2>
+		 <div class="about-main">
+			 <div class="col-md-6 abt-pic">
+				 <img src="{% static 'images/abt.jpg' %}" class="img-responsive" alt=""/>
+			 </div>
+			 <div class="col-md-6 abt-pic-info">
+
+				 <p style="color:#fff">Blood Bank & Donor Management System<br>
+                 BloodBank & Donor Management System enforces Drug & Cosmetic Act,
+					 National blood policy standards and guidelines ensuring proper collection & donation,
+					 effective management and monitoring the quality and quantity of the donated blood.
+					 Considering the national roll out,
+					 BloodBank & Donor Management
+					 System has been developed with modular and scalable
+					 approach with configurable rule based architecture allowing
+					 customization to easily incorporate specific requirements from nationwide stakeholders.
+                 </p>
+
+			 </div>
+			 <?php $cnt=$cnt+1;}} ?>
+			 <div class="clearfix"></div>
+		 </div>
+
+		 <div class="latest">
+			 <h3>LATEST PHOTOS</h3>
+			 <div class="pic start">
+				 <a class="fancybox" href="{% static 'images/4.jpg' %}" data-fancybox-group="gallery" title="Anybody can give blood"><img src="{% static 'images/4.jpg' %}" class="img-style row6" alt=""><span> </span></a>
+				 <h4><a href="event.html">Aenean rutrum</a></h4>
+				 <p>Suspendisse posuere enim eu ante scelerisque, vehicula turpis.</p>
+			 </div>
+			 <div class="pic">
+				 <a class="fancybox" href="{% static 'images/5.jpg' %}" data-fancybox-group="gallery" title="Starve a vampire, donate blood"><img src="{% static 'images/5.jpg' %}" class="img-style row6" alt=""><span> </span></a>
+				 <h4><a href="event.html">Aenean rutrum</a></h4>
+				 <p>Suspendisse posuere enim eu ante scelerisque, vehicula turpis.</p>
+			 </div>
+			 <div class="pic">
+				 <a class="fancybox" href="{% static 'images/6.jpg' %}" data-fancybox-group="gallery" title="Don't let mosquitoes get your blood first"><img src="{% static 'images/6.jpg' %}" class="img-style row6" alt=""><span> </span></a>
+				 <h4><a href="event.html">Aenean rutrum</a></h4>
+				 <p>Suspendisse posuere enim eu ante scelerisque, vehicula turpis.</p>
+			 </div>
+			 <div class="pic">
+				 <a class="fancybox" href="{% static 'images/7.jpg' %}" data-fancybox-group="gallery" title="You are Rock Star in someone’s life, donate blood."><img src="{% static 'images/7.jpg' %}" class="img-style row6" alt=""><span> </span></a>
+				 <h4><a href="event.html">Aenean rutrum</a></h4>
+				 <p>Suspendisse posuere enim eu ante scelerisque, vehicula turpis.</p>
+			 </div>
+			 <div class="pic">
+				 <a class="fancybox" href="{% static 'images/8.jpg' %}" data-fancybox-group="gallery" title="Donate your blood for a reason, let the reason to be life"><img src="{% static 'images/8.jpg' %}" class="img-style row6" alt=""><span> </span></a>
+				 <h4><a href="event.html">Aenean rutrum</a></h4>
+				 <p>Suspendisse posuere enim eu ante scelerisque, vehicula turpis.</p>
+			 </div>
+			 <div class="clearfix"></div>
+		 </div>
+		{% include 'footer.html' %}
+	 </div>
+</div>
+<!---->
+
+<!---->
+</body>
+</html>
+{% endblock %}

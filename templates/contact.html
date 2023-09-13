@@ -1,0 +1,100 @@
+{% load static %}
+
+{% block body %}
+<html>
+<head>
+<title>Online DJ Management System || Contact Us</title>
+<link href="{% static 'css/bootstrap.css' %}" rel='stylesheet' type='text/css' />
+<!-- Custom Theme files -->
+<link rel="stylesheet" href="{% static 'css/style.css' %}"  type="text/css" media="all">
+<link rel="stylesheet" href="{% static 'css/touchTouch.css' %}" type="text/css" media="all" />
+<!-- Custom Theme files -->
+<script src="{% static 'js/jquery.min.js' %}"></script>
+
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!--webfont-->
+<link href='http://fonts.googleapis.com/css?family=Monoton' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+<!---//End-css-style-switecher----->
+<script type="text/javascript" src="js/jquery.fancybox.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/jquery.fancybox.css" media="screen" />
+	   <script type="text/javascript">
+			$(document).ready(function() {
+				$('.fancybox').fancybox();
+
+			});
+		</script>
+
+</head>
+<body>
+{% include 'navigationbar.html' %}
+<div class="contact content">
+	 <div class="container">
+		 <ol class="breadcrumb">
+		  <li><a href="{% url 'home' %}">Home</a></li>
+		  <li class="active">Contact</li>
+		 </ol>
+
+		 <h2>Contact Us</h2>
+		 <div class="contact-main">
+             <h4 style="color: white"><span class="glyphicon glyphicon-home" aria-hidden="true">  Indrapuri C Sector Bhopal(M.P.) </span></h4>
+			 	<br>
+			 	<h4 style="color: white"><span class="glyphicon glyphicon-envelope" aria-hidden="true"> myemail@gmail.com </span></h4>
+			 		<br>
+			 		<h4 style="color: white"><span class="glyphicon glyphicon-phone" aria-hidden="true"> +91 8602768216 </span></h4>
+
+
+			 <div class="contact-grids">
+				 <div class="col-md-6 contact-left">
+					 <p>or drop a message we will reply you soon, </p>
+					 <form method="post">
+						{% csrf_token %}
+						 <ul>
+							 <li class="text-info">Name: </li>
+							 <li><input type="text" class="text" name="name" required="true" ></li>
+						 </ul>
+						 <ul>
+							 <li class="text-info">Email: </li>
+							 <li><input type="text" class="text" name="email" required="true"></li>
+						 </ul>
+						 <ul>
+							 <li class="text-info">Mobile Number: </li>
+							 <li><input type="text" class="text" name="mobnum" required="true" maxlength="10" pattern="[0-9]+"></li>
+						 </ul>
+						 <ul>
+							 <li class="text-info">Message:</li>
+							 <li><textarea value="Write here" name="message" required="true"></textarea></li>
+						 </ul>
+						 <input type="submit" name="submit" value="Submit">
+					 </form>
+				 </div>
+				 <div class="col-md-6 contact-right">
+					 	<div class="contact-map">
+						 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1578265.0941403757!2d-98.9828708842255!3d39.41170802696131!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54eab584e432360b%3A0x1c3bb99243deb742!2sUnited+States!5e0!3m2!1sen!2sin!4v1407515822047"> </iframe>
+						</div>
+				 </div>
+				 <div class="clearfix"></div>
+			 </div>
+		 </div>
+		{% include 'footer.html' %}
+	 </div>
+</div>
+<!---->
+
+<!---->
+</body>
+</html>
+
+
+{% ifequal error "no" %}
+<script>
+    alert('Your Message Has Been Send. We Will Contact You Soon');
+</script>
+{% endifequal %}
+{% ifequal error "yes" %}
+<script>
+    alert('Something Went Wrong , Try Again...');
+</script>
+{% endifequal %}
+
+{% endblock %}

@@ -1,0 +1,99 @@
+{% load static %}
+
+{% block body %}
+ <html lang="en" class="no-focus"> <!--<![endif]-->
+    <head>
+ <title>Blood Bank Management - Add Blood Group</title>
+<link rel="stylesheet" id="css-main" href="{% static 'adminassets/css/codebase.min.css' %}">
+
+</head>
+    <body>
+        <div id="page-container" class="sidebar-o sidebar-inverse side-scroll page-header-fixed main-content-narrow">
+
+
+              {% include 'sidebar.html' %}
+            {% include 'admin_nav.html' %}
+            <!-- Main Container -->
+            <main id="main-container">
+                <!-- Page Content -->
+                <div class="content">
+
+                    <!-- Register Forms -->
+                    <h2 class="content-heading">Add Blood Group</h2>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!-- Bootstrap Register -->
+                            <div class="block block-themed">
+                                <div class="block-header bg-gd-emerald">
+                                    <h3 class="block-title">Add Blood Group</h3>
+                                    <div class="block-options">
+                                        <button type="button" class="btn-block-option" data-toggle="block-option" data-action="state_toggle" data-action-mode="demo">
+                                            <i class="si si-refresh"></i>
+                                        </button>
+                                        <button type="button" class="btn-block-option" data-toggle="block-option" data-action="content_toggle"></button>
+                                    </div>
+                                </div>
+                                <div class="block-content">
+
+                                    <form method="post">
+                                    {% csrf_token %}
+                                        <div class="form-group row">
+                                            <label class="col-12" >Blood Group:</label>
+                                            <div class="col-12">
+                                                 <input type="text" class="form-control" name="bloodgroup" value="" required='true'>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <div class="col-12">
+                                                <button type="submit" class="btn btn-alt-success" name="submit">
+                                                    <i class="fa fa-plus mr-5"></i> Add
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                </div>
+                            </div>
+                            <!-- END Bootstrap Register -->
+                        </div>
+
+                       </div>
+                </div>
+                <!-- END Page Content -->
+            </main>
+            <!-- END Main Container -->
+
+         {% include 'adminfooter.html' %}
+        </div>
+        <!-- END Page Container -->
+
+        <!-- Codebase Core JS -->
+         <script src="{% static 'adminassets/js/core/jquery.min.js' %}"></script>
+        <script src="{% static 'adminassets/js/core/popper.min.js' %}"></script>
+        <script src="{% static 'adminassets/js/core/bootstrap.min.js' %}"></script>
+        <script src="{% static 'adminassets/js/core/jquery.slimscroll.min.js' %}"></script>
+        <script src="{% static 'adminassets/js/core/jquery.scrollLock.min.js' %}"></script>
+        <script src="{% static 'adminassets/js/core/jquery.appear.min.js' %}"></script>
+        <script src="{% static 'adminassets/js/core/jquery.countTo.min.js' %}"></script>
+        <script src="{% static 'adminassets/js/core/js.cookie.min.js' %}"></script>
+        <script src="{% static 'adminassets/js/codebase.js' %}"></script>
+    </body>
+</html>
+
+{%  ifequal error "no" %}
+<script>
+    alert('Record Saved Successfully');
+    window.location=('{% url 'view_bloodgroup' %}');
+</script>
+{%  endifequal %}
+
+{%  ifequal error "yes" %}
+<script>
+    alert('Something went wrong , Try Again');
+</script>
+{%  endifequal %}
+
+
+
+{% endblock %}
